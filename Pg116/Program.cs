@@ -14,8 +14,6 @@ namespace Pg116
         {
             Console.WriteLine("Welcome to die roller! Type 'quit' at any time to exit.");
                 TotalOfRolls();
-
-            
         }
         static void TotalOfRolls()
         {
