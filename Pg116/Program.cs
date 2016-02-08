@@ -24,23 +24,24 @@ namespace Pg116
             int total = 0;
 
             if (input == "quit")
-                return;
             {
-                if (!Int32.TryParse(input, out numberOfDice))
+                return;
+            }
+            
+            if (!Int32.TryParse(input, out numberOfDice))
+            {
+                Console.WriteLine("Your entry was not a number, try again.");
+                TotalOfRolls();
+            }
+            else
+            {
+                for (int i = 0; i <= numberOfDice; i++)
                 {
-                    Console.WriteLine("Your entry was not a number, try again.");
-                    TotalOfRolls();
+                    int dieRoll = rollTheDice.Next(6) + 1;
+                    total = dieRoll + total;
                 }
-                else
-                {
-                    for (int i = 0; i <= numberOfDice; i++)
-                    {
-                        int dieRoll = rollTheDice.Next(6) + 1;
-                        total = dieRoll + total;
-                    }
-                    Console.WriteLine("The total points from the dice rolled are " + total);
-                    TotalOfRolls();
-                }
+                Console.WriteLine("The total points from the dice rolled are " + total);
+                TotalOfRolls();
             }
         }
     }
